@@ -3,7 +3,8 @@ import Header from './components/Header';
 import AskAnything from './components/AskAnything';
 import AboutMe from './components/AboutMe';
 import Projects from './components/Projects';
-import liner from './assets/liner.png'; // Import the logo image
+import liner from './assets/linerGif.gif'; // Import the logo image
+import Data from './components/Data';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
       <section id="projects" className="">
         <Projects />
       </section>
+      <Data />
     </div>
   );
 }

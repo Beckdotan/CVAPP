@@ -18,7 +18,7 @@ function Header() {
           <nav className="flex space-x-8">
             <a href="#ask-anything" className="text-base font-medium text-lightGray hover:text-cyanBlue transition duration-300">Ask Anything</a>
             <a href="#about-me" className="text-base font-medium text-lightGray hover:text-cyanBlue transition duration-300">About Me</a>
-            <a href="#projects#" className="text-base font-medium text-lightGray hover:text-cyanBlue transition duration-300">Projects</a>
+            <a href="#projects" className="text-base font-medium text-lightGray hover:text-cyanBlue transition duration-300">Projects</a>
           </nav>
         </div>
         
@@ -48,9 +48,9 @@ function Header() {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden px-4 pb-4 space-y-1">
-          <a href="#" className="block text-base font-medium text-lightGray hover:text-skyBlue transition duration-300">Ask Anything</a>
-          <a href="#" className="block text-base font-medium text-lightGray hover:text-skyBlue transition duration-300">About Me</a>
-          <a href="#" className="block text-base font-medium text-lightGray hover:text-skyBlue transition duration-300">Projects</a>
+          <a href="#ask-anythin" className="block text-base font-medium text-lightGray hover:text-skyBlue transition duration-300">Ask Anything</a>
+          <a href="#about-me" className="block text-base font-medium text-lightGray hover:text-skyBlue transition duration-300">About Me</a>
+          <a href="#projects" className="block text-base font-medium text-lightGray hover:text-skyBlue transition duration-300">Projects</a>
           <button className="block text-skyBlue border border-skyBlue px-3 py-2 rounded-full text-center hover:bg-skyBlue hover:text-darkBackground transition duration-300">
             Contact Me
           </button>
