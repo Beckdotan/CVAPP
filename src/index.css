@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.tab-link {
+  @apply text-lightGray text-xl font-semibold py-2 px-4 rounded transition-colors duration-300;
+}
+
+.tab-link:hover {
+  @apply text-brightBlue bg-coolGray;
+}
+
+.tab-link:active {
+  @apply bg-brightBlue text-darkBackground;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+#root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+} 
