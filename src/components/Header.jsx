@@ -16,9 +16,9 @@ function Header() {
         {/* Center - Tabs Container (hidden on mobile) */}
         <div className="hidden md:flex items-stretch justify-start flex-grow pl-8">
           <nav className="flex space-x-8">
-            <a href="#" className="text-base font-medium text-lightGray hover:text-cyanBlue transition duration-300">Ask Anything</a>
-            <a href="#" className="text-base font-medium text-lightGray hover:text-cyanBlue transition duration-300">About Me</a>
-            <a href="#" className="text-base font-medium text-lightGray hover:text-cyanBlue transition duration-300">Projects</a>
+            <a href="#ask-anything" className="text-base font-medium text-lightGray hover:text-cyanBlue transition duration-300">Ask Anything</a>
+            <a href="#about-me" className="text-base font-medium text-lightGray hover:text-cyanBlue transition duration-300">About Me</a>
+            <a href="#projects#" className="text-base font-medium text-lightGray hover:text-cyanBlue transition duration-300">Projects</a>
           </nav>
         </div>
         

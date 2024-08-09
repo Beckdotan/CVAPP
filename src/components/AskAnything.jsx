@@ -14,7 +14,7 @@ function AskAnything() {
   };
   
   return (
-    <section id="ask-anything" className="py-20 bg-darkBackground text-lightGray">
+    <section id="ask-anything" className=" bg-darkBackground text-lightGray">
       <div className="container mx-auto px-8">
         <h2 className="text-6xl font-bold text-center text-cyanBlue mb-4 py-4 pt-8">
           Discover My Expertise In Real-Time
