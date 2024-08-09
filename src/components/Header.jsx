@@ -1,28 +1,31 @@
 import React, { useState } from 'react';
+import logo from '../assets/logo.png'; // Import the logo image
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 w-full bg-darkBackground bg-opacity-20 backdrop-blur-md text-lightGray z-50">
+    <header className=" fixed top-0 w-full bg-darkBackground bg-opacity-20 backdrop-blur-md text-lightGray z-50 shadow-lg">
       <div className="flex justify-between items-center h-16 px-8">
         {/* Left - Logo */}
         <div className="flex-shrink-0">
-          <img className="h-8 w-8" src="/path-to-your-logo.png" alt="Logo" />
+          <img className="h-12 w-50" src={logo} alt="Logo" />
         </div>
 
-        {/* Center - Tabs */}
-        <nav className="hidden md:flex space-x-8">
-          <a href="#" className="text-base font-medium text-lightGray hover:text-skyBlue transition duration-300">Ask Anything</a>
-          <a href="#" className="text-base font-medium text-lightGray hover:text-skyBlue transition duration-300">About Me</a>
-          <a href="#" className="text-base font-medium text-lightGray hover:text-skyBlue transition duration-300">Projects</a>
-        </nav>
+        {/* Center - Tabs Container (hidden on mobile) */}
+        <div className="hidden md:flex absolute inset-0 items-center justify-center">
+          <nav className="flex space-x-8">
+            <a href="#" className="text-base font-medium text-lightGray hover:text-skyBlue transition duration-300">Ask Anything</a>
+            <a href="#" className="text-base font-medium text-lightGray hover:text-skyBlue transition duration-300">About Me</a>
+            <a href="#" className="text-base font-medium text-lightGray hover:text-skyBlue transition duration-300">Projects</a>
+          </nav>
+        </div>
 
         {/* Right - Contact Button */}
         <div className="hidden md:flex items-center">
-          <a href="#" className="text-skyBlue border border-skyBlue px-4 py-2 rounded-full hover:bg-skyBlue hover:text-darkBackground transition duration-300">
+          <button className="block text-skyBlue border border-skyBlue px-3 py-2 rounded-full text-center hover:bg-skyBlue hover:text-darkBackground transition duration-300">
             Contact Me
-          </a>
+          </button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -44,9 +47,9 @@ function Header() {
           <a href="#" className="block text-base font-medium text-lightGray hover:text-skyBlue transition duration-300">Ask Anything</a>
           <a href="#" className="block text-base font-medium text-lightGray hover:text-skyBlue transition duration-300">About Me</a>
           <a href="#" className="block text-base font-medium text-lightGray hover:text-skyBlue transition duration-300">Projects</a>
-          <a href="#" className="block text-skyBlue border border-skyBlue px-3 py-2 rounded-full text-center hover:bg-skyBlue hover:text-darkBackground transition duration-300">
+          <button className="block text-skyBlue border border-skyBlue px-3 py-2 rounded-full text-center hover:bg-skyBlue hover:text-darkBackground transition duration-300">
             Contact Me
-          </a>
+          </button>
         </div>
       )}
     </header>
