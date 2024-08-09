@@ -12,21 +12,25 @@ function Header() {
           <img className="h-12 w-50" src={logo} alt="Logo" />
         </div>
 
+
         {/* Center - Tabs Container (hidden on mobile) */}
-        <div className="hidden md:flex absolute inset-0 items-center justify-center">
+        <div className="hidden md:flex items-stretch justify-start flex-grow pl-8">
           <nav className="flex space-x-8">
             <a href="#" className="text-base font-medium text-lightGray hover:text-skyBlue transition duration-300">Ask Anything</a>
             <a href="#" className="text-base font-medium text-lightGray hover:text-skyBlue transition duration-300">About Me</a>
             <a href="#" className="text-base font-medium text-lightGray hover:text-skyBlue transition duration-300">Projects</a>
           </nav>
         </div>
+        
 
         {/* Right - Contact Button */}
-        <div className="hidden md:flex items-center">
-        <button className="block text-skyBlue border border-skyBlue px-3 py-2 rounded-full text-center hover:bg-skyBlue hover:text-darkBackground transition duration-300">
+        <div className=" hidden md:flex items-center justify-center">
+          <a className=" text-skyBlue border border-skyBlue px-3 py-2 rounded-full text-center hover:bg-skyBlue hover:text-darkBackground transition duration-300 ">
             Contact Me
-          </button>
+          </a>
         </div>
+
+        
 
         {/* Mobile Menu Button */}
         <div className="md:hidden flex items-center">
