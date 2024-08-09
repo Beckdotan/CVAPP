@@ -5,7 +5,7 @@ function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className=" fixed top-0 w-full bg-darkBackground bg-opacity-20 backdrop-blur-md text-lightGray z-50 shadow-lg">
+    <header className=" fixed top-0 w-full bg-darkBackground bg-opacity-70 backdrop-blur-md text-lightGray z-50 shadow-lg">
       <div className="flex justify-between items-center h-16 px-8">
         {/* Left - Logo */}
         <div className="flex-shrink-0">
@@ -23,7 +23,7 @@ function Header() {
 
         {/* Right - Contact Button */}
         <div className="hidden md:flex items-center">
-          <button className="block text-skyBlue border border-skyBlue px-3 py-2 rounded-full text-center hover:bg-skyBlue hover:text-darkBackground transition duration-300">
+        <button className="block text-skyBlue border border-skyBlue px-3 py-2 rounded-full text-center hover:bg-skyBlue hover:text-darkBackground transition duration-300">
             Contact Me
           </button>
         </div>

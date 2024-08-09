@@ -7,6 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
+        darkerColor: "#151c26",
         darkBackground: "#1F2937", // Dark Slate Gray
         skyBlue: "#60A5FA",        // Sky Blue
         lightSky: "#93C5FD",       // Light Sky Blue
@@ -14,6 +15,8 @@ export default {
         lightGray: "#F3F4F6",      // Very Light Gray
         coolGray: "#4B5563",       // Cool Gray
         brightBlue: "#3B82F6",     // Bright Blue
+        orange: "#fbbf24",
+
       },
     },
   },
