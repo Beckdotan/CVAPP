@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import Card from './Card';
 
@@ -12,36 +12,47 @@ const cardData = [
 
 function CardRow() {
   const controls = useAnimation();
+  const [startTime, setStartTime] = useState(Date.now());
 
   const startAnimation = () => {
+    const elapsedTime = (Date.now() - startTime) / 1000;
+    const remainingDuration = Math.max(20 - elapsedTime, 0);
+
     controls.start({
       x: '-50%',
       transition: {
         x: {
           repeat: Infinity,
           repeatType: 'loop',
-          duration: 20,
+          duration: remainingDuration,
           ease: 'linear',
         },
       },
     });
   };
 
+  useEffect(() => {
+    startAnimation();
+  }, []);
+
   return (
     <div className="overflow-hidden relative w-full">
-    <p className="text-lightGray">Most asked questions:</p>
+      <p className="text-lightGray pt-6 text-center">Most asked questions:</p>
       <motion.div
         className="flex"
         animate={controls}
         onHoverStart={() => controls.stop()}
-        onHoverEnd={startAnimation}
-        style={{ width: '300%' }} // Double the width for seamless looping
+        onHoverEnd={() => {
+          setStartTime(Date.now());
+          startAnimation();
+        }}
+        style={{ width: '300%' }} // Adjusted width for seamless looping
       >
         {[...cardData, ...cardData, ...cardData].map((card, index) => (
           <div
             key={index}
             className="flex-shrink-0 h-40 px-2 py-6"
-            style={{ width: '10%' }} // Each card takes 25% of the container width
+            style={{ width: '10%' }} // Adjusted width for each card
           >
             <Card title={card.title} description={card.description} />
           </div>
