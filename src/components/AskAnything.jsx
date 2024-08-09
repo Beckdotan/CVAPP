@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import CardRow from './CardRow';
 
 function AskAnything() {
   const [question, setQuestion] = useState('');
@@ -8,11 +9,12 @@ function AskAnything() {
   };
 
   const handleAskClick = () => {
+    // This is where you'd integrate with the LLM to handle the user's question.
     console.log('User question:', question);
   };
   
   return (
-    <section id="ask-anything" className="py-20 bg-darkBackground text-lightGray relative">
+    <section id="ask-anything" className="py-20 bg-darkBackground text-lightGray">
       <div className="container mx-auto px-8">
         <h2 className="text-6xl font-bold text-center text-skyBlue mb-4 py-4 pt-8">
           Discover My Expertise In Real-Time
@@ -23,7 +25,7 @@ function AskAnything() {
         </p>
 
         <p className="text-2xl text-center mb-8 text-skyBlue">
-          Simply type your question below and click 'Ask'!
+        Simply type your question below and click 'Ask'!
         </p>
         <div className="text-center">
           <input
@@ -31,30 +33,17 @@ function AskAnything() {
             value={question}
             onChange={handleInputChange}
             placeholder="Type your question here..."
-            className="text-xl h-16 w-full md:w-2/3 px-4 py-2 rounded-full bg-darkerColor text-lightGray mb-4 focus:outline-none focus:ring-2 focus:ring-skyBlue transition duration-300"
+            className=" text-xl h-16 w-full md:w-2/3 px-4 py-2  rounded-full bg-darkerColor text-lightGray mb-4 focus:outline-none focus:ring-2 focus:ring-skyBlue  transition duration-300"
           />
           <br />
           <button
             onClick={handleAskClick}
-            className="text-xl text-skyBlue px-6 py-2 rounded-full hover:bg-skyBlue hover:text-darkBackground border border-skyBlue transition duration-300"
+            className=" text-xl text-skyBlue  px-6 py-2 rounded-full hover:bg-skyBlue hover:text-darkBackground border border-skyBlue transition duration-300"
           >
             Ask
           </button>
         </div>
-        
-        {/* Cards Container */}
-        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full h-64 overflow-hidden">
-          <div className="relative w-full h-full">
-            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 animate-rotate-circle">
-              <div className="flex items-center justify-center">
-                <div className="bg-lightGray text-darkBackground px-6 py-4 rounded-lg mx-4">Question 1</div>
-                <div className="bg-lightGray text-darkBackground px-6 py-4 rounded-lg mx-4">Question 2</div>
-                <div className="bg-lightGray text-darkBackground px-6 py-4 rounded-lg mx-4">Question 3</div>
-                <div className="bg-lightGray text-darkBackground px-6 py-4 rounded-lg mx-4">Question 4</div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <CardRow />
       </div>
     </section>
   );
