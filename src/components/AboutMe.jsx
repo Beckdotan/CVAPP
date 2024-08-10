@@ -61,7 +61,26 @@ function AboutMe() {
               Outside of my professional endeavors, I am a world-winning nature photographer and a former handball player for the Israeli national youth team. I am fluent in both Hebrew and English and always eager to connect with fellow professionals and explore new opportunities.
             </p>
 
-            <div className="mt-8 flex justify-center md:justify-start">
+            <div><p className='mt-8 text-yellow-400'> Follow & Contact Me:</p></div>
+
+            <div className=" mt-2 flex justify-center md:justify-start">
+              <a 
+                  href="tel:+972526978081" 
+                  className="text-cyanBlue hover:underline mr-4"
+              >
+                (+972) 052-6978081
+              </a>
+              <a 
+                href="mailto:your-email@example.com" 
+                className="text-cyanBlue hover:underline"
+              >
+              dotan.beck@gmail.com
+              </a>
+
+              </div>
+              
+            <div className=" mt-2 flex justify-center md:justify-start">
+
               <a 
                 href="https://www.linkedin.com/in/your-linkedin-profile" 
                 target="_blank" 
@@ -82,11 +101,14 @@ function AboutMe() {
                 href="https://www.your-photography-website.com" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-cyanBlue hover:underline"
+                className="text-cyanBlue hover:underline mr-4"
               >
                 Photography Website
               </a>
-            </div>
+              </div>
+              
+              
+
           </motion.div>
         </div>
       </div>
