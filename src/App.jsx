@@ -13,13 +13,14 @@ function App() {
       <section id="ask-anything" className="pt-16">
         <AskAnything />
       </section>
-      <img className="h-25 w-50 pt-8 bg-darkerColor" src={liner} alt="Logo" />
-      <section id="about-me" className="bg-darkerColor">
-        <AboutMe />
-      </section>
+      <img className="h-25 w-50 pt-8 bg-darkerColor" src={liner} alt="liner" />
       <section id="projects" className="">
         <Projects />
       </section>
+      <section id="about-me" className="bg-darkerColor">
+        <AboutMe />
+      </section>
+
     </div>
   );
 }

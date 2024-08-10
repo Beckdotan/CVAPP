@@ -1,32 +1,45 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer'; // Correct import
 
 function AboutMe() {
+  const { ref: profileRef, inView: profileInView } = useInView({
+    triggerOnce: true, // Trigger animation only once
+    threshold: 0.1, // Trigger when 10% of the element is visible
+  });
+
+  const { ref: textRef, inView: textInView } = useInView({
+    triggerOnce: true, // Trigger animation only once
+    threshold: 0.1, // Trigger when 10% of the element is visible
+  });
+
   return (
-    <section id="about-me" className="py-20 text-lightGray">
+    <section id="about-me" className="py-10 text-lightGray">
       <div className="container mx-auto px-8">
         <div className="flex flex-col md:flex-row items-center">
           {/* Profile Image */}
           <motion.div
+            ref={profileRef}
             initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
+            animate={profileInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 1 }}
             className="flex-shrink-0 md:w-1/3 mb-6 md:mb-0"
           >
             <motion.img
-              src="src/assets/me.png" // Replace with your profile image URL
+              src="src/assets/me.png"
               alt="Profile"
-              className="w-4/5 h-140  mx-auto md:mx-0"
+              className="w-4/5 h-140 mx-auto md:mx-0"
               initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
+              animate={profileInView ? { scale: 1, opacity: 1 } : {}}
               transition={{ duration: 1 }}
             />
           </motion.div>
 
           {/* Text */}
           <motion.div
+            ref={textRef}
             initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
+            animate={textInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 1 }}
             className="md:w-2/3 text-center md:text-left"
           >
@@ -53,7 +66,7 @@ function AboutMe() {
                 href="https://www.linkedin.com/in/your-linkedin-profile" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-cyan-400 hover:underline mr-4"
+                className="text-cyanBlue hover:underline mr-4"
               >
                 LinkedIn
               </a>
@@ -61,17 +74,17 @@ function AboutMe() {
                 href="https://github.com/your-github-profile" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-cyan-400 hover:underline mr-4"
+                className="text-cyanBlue hover:underline mr-4"
               >
                 GitHub
               </a>
               <a 
-                href="https://github.com/your-github-profile" 
+                href="https://www.your-photography-website.com" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-cyan-400 hover:underline"
+                className="text-cyanBlue hover:underline"
               >
-                Photography Webiste
+                Photography Website
               </a>
             </div>
           </motion.div>

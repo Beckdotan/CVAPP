@@ -37,7 +37,7 @@ function CardRow() {
 
   return (
     <div className="overflow-hidden relative w-full">
-      <p className="text-lightGray pt-6 text-left">Most asked questions:</p>
+      <p className="text-yellow-400 pt-6 text-left">Most asked questions:</p>
       <motion.div
         className="flex"
         animate={controls}

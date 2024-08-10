@@ -40,7 +40,8 @@ function AskAnything() {
     <section id="ask-anything" className=" text-lightGray">
       <div className="container mx-auto px-8">
         <h2 className="text-6xl font-bold text-center text-cyanBlue mb-4 py-4 pt-8">
-          Discover My Expertise <br /> In Real-Time
+          Discover My Expertise <br /> 
+          <p className= "text-yellow-400">In Real-Time</p>
         </h2>
         <p className="text-2xl text-center mb-8">
           Ask me anything about my professional background, skills, or projects.<br />
