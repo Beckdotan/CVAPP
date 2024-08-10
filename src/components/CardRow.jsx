@@ -3,12 +3,12 @@ import { motion, useAnimation } from 'framer-motion';
 import Card from './Card';
 
 const cardData = [
-  { title: 'Card 1', description: 'Description for card 1' },
-  { title: 'Card 2', description: 'Description for card 2' },
-  { title: 'Card 3', description: 'Description for card 3' },
-  { title: 'Card 4', description: 'Description for card 4' },
-  { title: 'Card 5', description: 'Description for card 5' },
-];
+    { title: 'Projects', description: 'Tell me about the main project that Dotan made.' },
+    { title: 'Education', description: 'What degrees does Dotan have?' },
+    { title: 'Job', description: 'What is Dotan’s employment history?' },
+    { title: 'Qualities', description: 'What are Dotan’s best and worst qualities?' },
+    { title: 'Job', description: 'What is Dotan looking for in a job?' }
+  ];
 
 function CardRow() {
   const controls = useAnimation();
@@ -37,7 +37,7 @@ function CardRow() {
 
   return (
     <div className="overflow-hidden relative w-full">
-      <p className="text-lightGray pt-6 text-center">Most asked questions:</p>
+      <p className="text-lightGray pt-6 text-left">Most asked questions:</p>
       <motion.div
         className="flex"
         animate={controls}

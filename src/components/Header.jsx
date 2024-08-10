@@ -5,7 +5,7 @@ function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className=" fixed top-0 w-full bg-darkBackground bg-opacity-70 backdrop-blur-md text-lightGray z-50 shadow-lg">
+    <header className=" fixed top-0 w-full bg-darkerColor bg-opacity-70 backdrop-blur-md text-lightGray z-50 shadow-md shadow-darkBackground">
       <div className="flex justify-between items-center h-16 px-8">
         {/* Left - Logo */}
         <div className="flex-shrink-0">
