@@ -3,7 +3,9 @@ import Header from './components/Header';
 import AskAnything from './components/AskAnything';
 import AboutMe from './components/AboutMe';
 import Projects from './components/Projects';
-import liner from './assets/linerGif.gif'; // Import the logo image
+import liner from './assets/linerGif.gif';
+import Footer from './components/Footer'; 
+
 
 
 function App() {
@@ -20,7 +22,7 @@ function App() {
       <section id="about-me" className="bg-darkerColor">
         <AboutMe />
       </section>
-
+      <Footer />
     </div>
   );
 }

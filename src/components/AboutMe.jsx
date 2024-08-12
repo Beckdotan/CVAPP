@@ -14,7 +14,7 @@ function AboutMe() {
   });
 
   return (
-    <section id="about-me" className="py-10 text-lightGray">
+    <section id="about-me" className="py-10 text-lightGray bg-darkerColor">
       <div className="container mx-auto px-8">
         <div className="flex flex-col md:flex-row items-center">
           {/* Profile Image */}
@@ -43,7 +43,7 @@ function AboutMe() {
             transition={{ duration: 1 }}
             className="md:w-2/3 text-center md:text-left"
           >
-            <h2 className="text-4xl font-bold mb-8 text-cyan-400">About Me</h2>
+            <h2 className="text-4xl font-bold mb-8 text-cyanBlue">About Me</h2>
             <p className="text-lg leading-relaxed">
               As a Data Scientist and Full Stack Developer, I have extensive experience in full lifecycle projects specializing in LLM workflows with RAG, Angular, .NET, MSSQL, and AWS.<br />
               
@@ -60,55 +60,7 @@ function AboutMe() {
               My journey also includes notable achievements such as developing an LLM-based web application for the Master-chef brand during the Schestowitz Honors Program.<br /><br />
               Outside of my professional endeavors, I am a world-winning nature photographer and a former handball player for the Israeli national youth team. I am fluent in both Hebrew and English and always eager to connect with fellow professionals and explore new opportunities.
             </p>
-
-            <div><p className='mt-8 text-yellow-400'> Follow & Contact Me:</p></div>
-
-            <div className=" mt-2 flex justify-center md:justify-start">
-              <a 
-                  href="tel:+972526978081" 
-                  className="text-cyanBlue hover:underline mr-4"
-              >
-                (+972) 052-6978081
-              </a>
-              <a 
-                href="mailto:your-email@example.com" 
-                className="text-cyanBlue hover:underline"
-              >
-              dotan.beck@gmail.com
-              </a>
-
-              </div>
-              
-            <div className=" mt-2 flex justify-center md:justify-start">
-
-              <a 
-                href="https://www.linkedin.com/in/your-linkedin-profile" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-cyanBlue hover:underline mr-4"
-              >
-                LinkedIn
-              </a>
-              <a 
-                href="https://github.com/your-github-profile" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-cyanBlue hover:underline mr-4"
-              >
-                GitHub
-              </a>
-              <a 
-                href="https://www.your-photography-website.com" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-cyanBlue hover:underline mr-4"
-              >
-                Photography Website
-              </a>
-              </div>
-              
-              
-
+            <br />
           </motion.div>
         </div>
       </div>

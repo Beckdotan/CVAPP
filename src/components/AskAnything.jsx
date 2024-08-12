@@ -37,7 +37,7 @@ function AskAnything() {
   };
 
   return (
-    <section id="ask-anything" className=" text-lightGray">
+    <section id="ask-anything" className=" text-lightGray bg-darkerColor">
       <div className="container mx-auto px-8">
         <h2 className="text-6xl font-bold text-center text-cyanBlue mb-4 py-4 pt-8">
           Discover My Expertise <br /> 
