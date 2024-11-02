@@ -116,16 +116,16 @@ User Question → Content Generation → Style Transfer → Semantic Verificatio
    │  Verification   │
    └────────┬────────┘
             ▼
-   ┌─────────────────┐        ┌─────────────────┐
-   │  Return Original├─Yes─►        Below       │
-   │    Content      │        │  Threshold?     │
-   └─────────────────┘        └────────┬────────┘
-                                       │No
-                                       ▼
-                              ┌─────────────────┐
-                              │     Return      │
-                              │    Response     │
-                              └─────────────────┘
+   ┌─────────────────┐      ┌─────────────────┐
+   │  Return Original├─Yes─►      Below       │
+   │    Content      │      │  Threshold?     │
+   └─────────────────┘      └────────┬────────┘
+                                     │No
+                                     ▼
+                           ┌─────────────────┐
+                           │     Return      │
+                           │    Response     │
+                           └─────────────────┘
    ```
    
    
