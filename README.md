@@ -1,6 +1,141 @@
-# CV Application with AI Assistant
+# **CV Application with AI Assistant**
 
 A React-based CV application featuring an AI assistant that can answer questions about my professional background. The application consists of a Vite/React frontend and a FastAPI (Python) backend that interfaces with OpenAI's API.
+
+## Technical Implementation Deep-Dive
+
+### Advanced LLM Architecture
+
+This project implements a sophisticated multi-stage AI processing pipeline that combines several advanced NLP techniques:
+
+1. **Dual-Model Architecture**
+   - Primary Content Generation: GPT-3.5-Turbo for knowledge-based responses
+   - Style Transfer: Fine-tuned model for personality adaptation
+   - Benefits: Separates content accuracy from style consistency
+
+2. **Semantic Verification System**
+   - BERT-based embedding comparison (using `sentence-transformers/bert-base-nli-mean-tokens`)
+   - Cosine similarity measurement for semantic consistency
+   - Automatic retry mechanism with enhanced prompting if consistency check fails
+
+3. **Style Transfer Pipeline**
+```plaintext
+User Question → Content Generation → Style Transfer → Semantic Verification → Response
+```
+
+### Processing Flow
+
+1. **Initial Content Generation**
+   ```python
+   async def get_content_response(question: str, system_prompt: str):
+       # Uses GPT-3.5-Turbo with custom system prompt
+       # Ensures factual accuracy and comprehensive responses
+   ```
+
+2. **Style Transformation**
+   ```python
+   async def style_transfer(content: str):
+       # Uses fine-tuned model to maintain personal writing style
+       # Preserves content while adapting tone and language
+   ```
+
+3. **Semantic Verification**
+   ```python
+   def verify_semantic_consistency(original: str, styled: str):
+       # BERT embeddings comparison
+       # Ensures meaning preservation during style transfer
+       # Implements threshold-based verification
+   ```
+
+### Advanced Features
+
+1. **Semantic Consistency Checking**
+   - Uses BERT embeddings for deep semantic understanding
+   - Implements cosine similarity measurements
+   - Maintains configurable threshold for accuracy
+
+2. **Automatic Recovery System**
+   - Failed consistency checks trigger enhanced prompting
+   - Multiple verification attempts with different strategies
+   - Fallback mechanisms to ensure reliable responses
+
+3. **Adaptive Processing Pipeline**
+   ```plaintext
+   ┌─────────────────┐
+   │  User Question  │
+   └────────┬────────┘
+            ▼
+   ┌─────────────────┐
+   │ GPT-3.5 Content │
+   │   Generation    │
+   └────────┬────────┘
+            ▼
+   ┌─────────────────┐
+   │  Style Transfer │
+   │   (Fine-tuned)  │
+   └────────┬────────┘
+            ▼
+   ┌─────────────────┐
+   │    Semantic     │
+   │  Verification   │
+   └────────┬────────┘
+            ▼
+   ┌─────────────────┐
+   │ Response/Retry  │
+   │    Logic       │
+   └─────────────────┘
+   ```
+
+### Model Configuration
+
+1. **Content Generation Model**
+   - Model: GPT-3.5-Turbo
+   - Temperature: 0.7
+   - Max Tokens: 300
+   - Custom system prompting
+
+2. **Style Transfer Model**
+   - Fine-tuned model based on personal writing samples
+   - Specialized prompt engineering for style preservation
+   - Semantic consistency validation
+
+3. **BERT Configuration**
+   - Model: `sentence-transformers/bert-base-nli-mean-tokens`
+   - Max sequence length: 512 tokens
+   - Mean pooling strategy for embedding generation
+
+### API Response Structure
+
+```json
+{
+    "answer": "Styled response text",
+    "verification": {
+        "is_consistent": true,
+        "similarity_score": 0.92,
+        "threshold": 0.8
+    }
+}
+```
+
+### Error Handling and Reliability
+
+1. **Semantic Consistency Failures**
+   - Automatic retry with enhanced prompting
+   - Fallback to original content if needed
+   - Detailed verification reporting
+
+2. **API Error Management**
+   - Comprehensive exception handling
+   - Detailed error reporting
+   - Graceful degradation
+
+3. **Performance Optimization**
+   - Asynchronous processing
+   - Efficient token usage
+   - Optimized BERT embedding generation
+
+
+# **Installation**
 
 ## Prerequisites
 
