@@ -73,59 +73,59 @@ User Question → Content Generation → Style Transfer → Semantic Verificatio
 3. **Adaptive Processing Pipeline**
    ```plaintext
    ┌─────────────────┐
-│ Style Transfer  │
-│  First Attempt  │
-└────────┬────────┘
-         ▼
-┌─────────────────┐
-│   Semantic      │
-│  Verification   │
-└────────┬────────┘
-         ▼
-┌─────────────────┐
-│  Below          │    ┌─────────────────┐
-│  Threshold?     ├─No─►     Return      │
-└────────┬────────┘    │    Response     │
-         │Yes          └─────────────────┘
-         ▼
-┌─────────────────┐
-│ Style Transfer  │
-│ Second Attempt  │
-│ (Enhanced Prompt)│
-└────────┬────────┘
-         ▼
-┌─────────────────┐
-│   Semantic      │
-│  Verification   │
-└────────┬────────┘
-         ▼
-┌─────────────────┐
-│  Below          │    ┌─────────────────┐
-│  Threshold?     ├─No─►     Return      │
-└────────┬────────┘    │    Response     │
-         │Yes          └─────────────────┘
-         ▼
-┌─────────────────┐
-│ Style Transfer  │
-│  Final Attempt  │
-│(Strict Prompt)  │
-└────────┬────────┘
-         ▼
-┌─────────────────┐
-│   Semantic      │
-│  Verification   │
-└────────┬────────┘
-         ▼
-┌─────────────────┐    ┌─────────────────┐
-│  Return Original├─Yes─►  Below          │
-│    Content      │    │  Threshold?     │
-└─────────────────┘    └────────┬────────┘
-                                │No
-                                ▼
-                      ┌─────────────────┐
-                      │     Return      │
-                      │    Response     │
-                      └─────────────────┘
+   │ Style Transfer  │
+   │  First Attempt  │
+   └────────┬────────┘
+            ▼
+   ┌─────────────────┐
+   │   Semantic      │
+   │  Verification   │
+   └────────┬────────┘
+            ▼
+   ┌─────────────────┐
+   │  Below          │    ┌─────────────────┐
+   │  Threshold?     ├─No─►     Return      │
+   └────────┬────────┘    │    Response     │
+            │Yes          └─────────────────┘
+            ▼
+   ┌─────────────────┐
+   │ Style Transfer  │
+   │ Second Attempt  │
+   │ (Enhanced Prompt)│
+   └────────┬────────┘
+            ▼
+   ┌─────────────────┐
+   │   Semantic      │
+   │  Verification   │
+   └────────┬────────┘
+            ▼
+   ┌─────────────────┐
+   │  Below          │    ┌─────────────────┐
+   │  Threshold?     ├─No─►     Return      │
+   └────────┬────────┘    │    Response     │
+            │Yes          └─────────────────┘
+            ▼
+   ┌─────────────────┐
+   │ Style Transfer  │
+   │  Final Attempt  │
+   │(Strict Prompt)  │
+   └────────┬────────┘
+            ▼
+   ┌─────────────────┐
+   │   Semantic      │
+   │  Verification   │
+   └────────┬────────┘
+            ▼
+   ┌─────────────────┐    ┌─────────────────┐
+   │  Return Original├─Yes─►  Below          │
+   │    Content      │    │  Threshold?     │
+   └─────────────────┘    └────────┬────────┘
+                                   │No
+                                   ▼
+                         ┌─────────────────┐
+                         │     Return      │
+                         │    Response     │
+                         └─────────────────┘
    ```
    
    
