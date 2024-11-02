@@ -16,6 +16,11 @@ dist-ssr
 .env
 
 
+# Ignore training data
+server/helpers/training_data.jsonl
+server/training_documents/*.txt
+
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
