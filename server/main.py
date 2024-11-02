@@ -88,41 +88,53 @@ async def ask_question(request: QuestionRequest):
         content_response = await get_content_response(request.question, system_prompt)
         print(f"Generated Content (LLM): {content_response}")
 
-        # Step 2: Transform content into your style
+        # Step 2: First attempt at style transfer
         styled_response = await style_transfer(content_response)
-        print(f"Styled Response (Fine-Tuned Model): {styled_response}")
+        print(f"Styled Response (First Attempt): {styled_response}")
 
-        # Step 3: Verify semantic consistency
+        # Step 3: First verification
         verification_result = verify_semantic_consistency(content_response, styled_response)
-        print(f"Verification Result: {verification_result}")
+        print(f"Verification Result (First Attempt): {verification_result}")
 
+        # If first attempt fails, try again with enhanced prompt
         if not verification_result["is_consistent"]:
-            # Retry style transfer with explicit instruction if verification fails
+            print("First attempt failed, trying second attempt with enhanced prompt...")
             styled_response = await style_transfer(
                 f"Maintain exact meaning while styling. Original: {content_response}"
             )
             verification_result = verify_semantic_consistency(content_response, styled_response)
-            print("Retry - Styled Response (Fine-Tuned Model):", styled_response)
-            print("Retry - Verification Result:", verification_result)
+            print("Second Attempt - Styled Response:", styled_response)
+            print("Second Attempt - Verification Result:", verification_result)
             
+            # If second attempt fails, try one final time with even stricter prompt
             if not verification_result["is_consistent"]:
-                # Log final attempt as failure
-                print("Final consistency check failed. Returning original content with warning.")
-                return {
-                    "answer": content_response,
-                    "warning": "Style transfer failed to maintain semantic consistency",
-                    "verification": verification_result
-                }
+                print("Second attempt failed, trying final attempt with strict prompt...")
+                styled_response = await style_transfer(
+                    f"Keep the exact same meaning and information, only adjust the writing style. Do not add or remove any information. Text to style: {content_response}"
+                )
+                verification_result = verify_semantic_consistency(content_response, styled_response)
+                print("Final Attempt - Styled Response:", styled_response)
+                print("Final Attempt - Verification Result:", verification_result)
+                
+                # If all style transfer attempts fail, return original content
+                if not verification_result["is_consistent"]:
+                    print("All style transfer attempts failed. Returning original content.")
+                    return {
+                        "answer": content_response,
+                        "warning": "Style transfer failed to maintain semantic consistency after multiple attempts",
+                        "verification": verification_result,
+                        "attempts": 3
+                    }
         
-        # Return the styled response with verification result if consistent
-        print("Final Response returned to user:", styled_response)
+        # Return the successful styled response with verification result
         return {
             "answer": styled_response,
-            "verification": verification_result
+            "verification": verification_result,
+            "attempts": 3 if not verification_result["is_consistent"] else 1
         }
         
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
-
+    
 if __name__ == "__main__":
     uvicorn.run(app, host="localhost", port=3002)

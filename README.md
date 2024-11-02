@@ -16,7 +16,12 @@ This project implements a sophisticated multi-stage AI processing pipeline that 
 2. **Semantic Verification System**
    - BERT-based embedding comparison (using `sentence-transformers/bert-base-nli-mean-tokens`)
    - Cosine similarity measurement for semantic consistency
-   - Automatic retry mechanism with enhanced prompting if consistency check fails
+   - Three-stage retry mechanism with progressively stricter prompting:
+      - Initial attempt with standard style transfer
+      - Second attempt with enhanced semantic preservation prompt
+      - Final attempt with strict meaning preservation instructions
+   - Fallback to original content if all attempts fail to meet threshold
+
 
 3. **Style Transfer Pipeline**
 ```plaintext
@@ -56,36 +61,74 @@ User Question → Content Generation → Style Transfer → Semantic Verificatio
 
 2. **Automatic Recovery System**
    - Failed consistency checks trigger enhanced prompting
-   - Multiple verification attempts with different strategies
-   - Fallback mechanisms to ensure reliable responses
+   - Three-tier retry strategy:Three-tier retry strategy:
+      - Standard style transfer attempt
+      - Enhanced prompt emphasizing meaning preservation
+      - Strict prompt with explicit instructions for content preservation
+   - Detailed attempt tracking and reporting
+   - Intelligent fallback to original content if semantic consistency cannot be maintained
+   - Progressive prompt engineering for optimal results
+   - Comprehensive verification reporting at each attempt
 
 3. **Adaptive Processing Pipeline**
    ```plaintext
    ┌─────────────────┐
-   │  User Question  │
-   └────────┬────────┘
-            ▼
-   ┌─────────────────┐
-   │ GPT-3.5 Content │
-   │   Generation    │
-   └────────┬────────┘
-            ▼
-   ┌─────────────────┐
-   │  Style Transfer │
-   │   (Fine-tuned)  │
-   └────────┬────────┘
-            ▼
-   ┌─────────────────┐
-   │    Semantic     │
-   │  Verification   │
-   └────────┬────────┘
-            ▼
-   ┌─────────────────┐
-   │ Response/Retry  │
-   │    Logic       │
-   └─────────────────┘
+│ Style Transfer  │
+│  First Attempt  │
+└────────┬────────┘
+         ▼
+┌─────────────────┐
+│   Semantic      │
+│  Verification   │
+└────────┬────────┘
+         ▼
+┌─────────────────┐
+│  Below          │    ┌─────────────────┐
+│  Threshold?     ├─No─►     Return      │
+└────────┬────────┘    │    Response     │
+         │Yes          └─────────────────┘
+         ▼
+┌─────────────────┐
+│ Style Transfer  │
+│ Second Attempt  │
+│ (Enhanced Prompt)│
+└────────┬────────┘
+         ▼
+┌─────────────────┐
+│   Semantic      │
+│  Verification   │
+└────────┬────────┘
+         ▼
+┌─────────────────┐
+│  Below          │    ┌─────────────────┐
+│  Threshold?     ├─No─►     Return      │
+└────────┬────────┘    │    Response     │
+         │Yes          └─────────────────┘
+         ▼
+┌─────────────────┐
+│ Style Transfer  │
+│  Final Attempt  │
+│(Strict Prompt)  │
+└────────┬────────┘
+         ▼
+┌─────────────────┐
+│   Semantic      │
+│  Verification   │
+└────────┬────────┘
+         ▼
+┌─────────────────┐    ┌─────────────────┐
+│  Return Original├─Yes─►  Below          │
+│    Content      │    │  Threshold?     │
+└─────────────────┘    └────────┬────────┘
+                                │No
+                                ▼
+                      ┌─────────────────┐
+                      │     Return      │
+                      │    Response     │
+                      └─────────────────┘
    ```
-
+   
+   
 ### Model Configuration
 
 1. **Content Generation Model**
@@ -107,13 +150,27 @@ User Question → Content Generation → Style Transfer → Semantic Verificatio
 ### API Response Structure
 
 ```json
+// Successful style transfer
 {
     "answer": "Styled response text",
     "verification": {
         "is_consistent": true,
         "similarity_score": 0.92,
         "threshold": 0.8
-    }
+    },
+    "attempts": 1
+}
+
+// Failed style transfer
+{
+    "answer": "original_content_response",
+    "warning": "Style transfer failed to maintain semantic consistency after multiple attempts",
+    "verification": {
+        "is_consistent": false,
+        "similarity_score": 0.75,
+        "threshold": 0.8
+    },
+    "attempts": 3
 }
 ```
 
